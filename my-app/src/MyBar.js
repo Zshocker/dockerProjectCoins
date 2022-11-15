@@ -46,7 +46,7 @@ export default function MyBar() {
     });
 
     const Myfetch = async () => {
-        const dataSe = await axios.get("Myapp/getData");
+        const dataSe = await axios.get("http://localhost:49000/getData");
         setDataA(dataSe);
         console.log(dataA);
 
