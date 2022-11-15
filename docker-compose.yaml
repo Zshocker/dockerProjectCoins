@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  web:
+    container_name: Myapp
+    build:
+      context: ./DockerProject
+      dockerfile: dockerfile
+    ports:
+    - "49000:8080"
+    networks:
+    - mynet
+  front:
+    container_name: frApp
+    build:
+      context: ./my-app
+      dockerfile: dockerfile
+    ports:
+    - "3001:3000"
+    networks:
+    - mynet
+  db:
+    container_name: mongo-db
+    image: mongo
+    networks:
+    - mynet
+
+networks:
+  mynet:
+    name: custom_net
